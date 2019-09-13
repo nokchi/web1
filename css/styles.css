@@ -2,8 +2,8 @@ body{
   margin: 0px;
 }
   a{
-    color:black;
     text-decoration: none;
+    text-decoration-color: green;
   }
   #grid{
     display: grid;
@@ -16,6 +16,7 @@ body{
     display: block;
     margin: 0px;
     padding:20px;
+    text-decoration-color: blue;
   }
   ol{
     border-right: 2px solid blue;
