@@ -3,7 +3,6 @@ body{
 }
   a{
     text-decoration: none;
-    text-decoration-color: green;
   }
   #grid{
     display: grid;
