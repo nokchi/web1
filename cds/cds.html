@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var skill = null;
+            var fileName = "Archer";
+            var skillset = null;
+            var btn;
+            $(".Hero_Img").on("click",function(){
+                var img = $(this);
+                var name = img.attr("value");
+                fileName = "Archer";
+                if(name=="아처"){
+                    fileName="Archer";
+                }else if(name=="버서커"){
+                    fileName="Berserker";
+                }else if(name=="셰프"){
+                    fileName="Chef";
+                }else if(name=="엔지니어"){
+                    fileName="Engineer";
+                }else if(name=="메지션"){
+                    fileName="Magician";
+                }else if(name=="머스킷티어"){
+                    fileName="Musketeer";
+                }else if(name=="나이트"){
+                    fileName="Knight";
+                }else if(name=="프리스트"){
+                    fileName="Priest";
+                }
+                $(".Hero_name").html(img.attr("value"));
+                $(".select_hero").attr('src',img.attr("src"));
+                $(".skill_1_top").attr('src',"./cdsImg/"+fileName+"_Skill_PSV_OFF.png");
+                $(".skill_1_under").attr('src',"./cdsImg/"+fileName+"_Skill_PSV_OFF.png");
+                $(".skill_2_top").attr('src',"./cdsImg/"+fileName+"_Skill_1_OFF.png");
+                $(".skill_2_under").attr('src',"./cdsImg/"+fileName+"_Skill_1_OFF.png");
+                $(".skill_3_top").attr('src',"./cdsImg/"+fileName+"_Skill_2_OFF.png");
+                $(".skill_3_under").attr('src',"./cdsImg/"+fileName+"_Skill_2_OFF.png");
+                $(".skill_4_top").attr('src',"./cdsImg/"+fileName+"_Skill_OFF.png");
+                $(".skill_4_under").attr('src',"./cdsImg/"+fileName+"_Skill_OFF.png");
+                $(".skill_5_top").attr('src',"./cdsImg/"+fileName+"_Skill_3_OFF.png");
+                $(".skill_5_under").attr('src',"./cdsImg/"+fileName+"_Skill_3_OFF.png");
+            })
+            $(".skill_selector > img").on("click",function(){
+                skill = $(this).attr("value");
+                skillset = $(this);
+                console.log(skillset.attr("src").indexOf("_OFF"));
+                if(skillset.attr("src").indexOf("_OFF")==-1){
+                    btn = $("#upgrade_btn").html("강화 취소");
+                }else{
+                    btn = $("#upgrade_btn").html("강화");
+                }
+            })
+            $(".snip1535").on("click",function(){
+                if(skillset.attr("src").indexOf("_OFF")==-1){
+                    skillset.attr("src","./cdsImg/"+fileName+"_Skill"+skill+"_OFF.png");
+                    btn = $("#upgrade_btn").html("강화");
+                }else{
+                    skillset.attr("src","./cdsImg/"+fileName+"_Skill"+skill+".png");
+                    btn = $("#upgrade_btn").html("강화 취소");
+                }
+            })
+        })
+        
+        $(".hover").mouseleave(
+             function() {
+                $(this).removeClass("hover");
+            }
+        );
+        
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+        .cds_container{
+            width: 720px;
+            height: 800px;
+            margin: 0 auto;
+            padding: 25px;
+            background: #A79068;
+        }
+        .cds_main{
+            position: relative;
+            width: 700px;
+            height: 282px;
+        }
+        .cds_selector{
+            width: 440px;
+        }
+        .cds_selector>img{
+            width: 100px;
+        }
+        .Hero_name{
+            display: inline;
+        }
+        .cds_main_select_hero{
+        }
+        .main_img{
+        
+        }
+        .skill_1_top,.skill_2_top,.skill_3_top,.skill_4_top,.skill_5_top,.skill_1_under,.skill_2_under,.skill_3_under,.skill_4_under,.skill_5_under{
+            position: absolute;
+            width: 60px;
+        }
+        .select_hero{
+            position: absolute;
+            left: 14px;
+            top: 124px;
+            width: 120px;
+        }
+        .skill_1_top,.skill_2_top,.skill_3_top,.skill_4_top,.skill_5_top{
+            top: 135px;
+        }
+        .skill_1_under,.skill_2_under,.skill_3_under,.skill_4_under,.skill_5_under{
+            top: 205px;
+        }
+        
+        .skill_1_top,.skill_1_under{
+            left:135px;
+        }
+        .skill_2_top,.skill_2_under{
+            left:245px;
+        }
+        .skill_3_top,.skill_3_under{
+            left:350px;
+        }
+        .skill_4_top,.skill_4_under{
+            left:460px;
+        }
+        .skill_5_top,.skill_5_under{
+            left:565px;
+        }
+        .header >a> img{
+            width: 250px;
+        }
+        /*텍스트 탭*/
+        .text_tab{
+            overflow: auto;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #FAFAFA;
+        }
+        .text_tab > h3,h1{
+        }
+        /* 버튼 디자인*/
+        .snip1535 {
+          background-color: #c47135;
+          border: none;
+          color: #ffffff;
+          cursor: pointer;
+          display: inline-block;
+          font-family: 'BenchNine', Arial, sans-serif;
+          font-size: 1em;
+          font-size: 22px;
+          line-height: 1em;
+          margin: 15px 40px;
+          outline: none;
+          padding: 12px 40px 10px;
+          position: relative;
+          text-transform: uppercase;
+          font-weight: 700;
+        float: right;
+        }
+        .snip1535:before,
+        .snip1535:after {
+          border-color: transparent;
+          -webkit-transition: all 0.25s;
+          transition: all 0.25s;
+          border-style: solid;
+          border-width: 0;
+          content: "";
+          height: 24px;
+          position: absolute;
+          width: 24px;
+        }
+        .snip1535:before {
+          border-color: #c47135;
+          border-right-width: 2px;
+          border-top-width: 2px;
+          right: -5px;
+          top: -5px;
+        }
+        .snip1535:after {
+          border-bottom-width: 2px;
+          border-color: #c47135;
+          border-left-width: 2px;
+          bottom: -5px;
+          left: -5px;
+        }
+        .snip1535:hover,
+        .snip1535.hover {
+          background-color: #c47135;
+        }
+        .snip1535:hover:before,
+        .snip1535.hover:before,
+        .snip1535:hover:after,
+        .snip1535.hover:after {
+          height: 100%;
+          width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="cds_container">
+        <div class="header"><a href="https://cafe.naver.com/4pcastle"><img src="./cdsImg/CASTLE_LOGO.png" alt=""></a></div>
+       <div class="cds_main">
+            <div class="main_img">
+                <img class="cds_main_back" src="./cdsImg/main.jpg" alt="">
+                <img class="select_hero" src="./cdsImg/Hero_Archer.png" alt="">
+                <div class="skill_selector">
+                    <img class="skill_1_top" src="./cdsImg/Archer_Skill_PSV_OFF.png" alt="" value="_PSV">
+                    <img class="skill_1_under" src="./cdsImg/Archer_Skill_PSV_OFF.png" alt="" value="_PSV">
+                    <img class="skill_2_top" src="./cdsImg/Archer_Skill_1_OFF.png" alt="" value="_1">
+                    <img class="skill_2_under" src="./cdsImg/Archer_Skill_1_OFF.png" alt="" value="_1">
+                    <img class="skill_3_top" src="./cdsImg/Archer_Skill_2_OFF.png" alt="" value="_2">
+                    <img class="skill_3_under" src="./cdsImg/Archer_Skill_2_OFF.png" alt="" value="_2">
+                    <img class="skill_4_top" src="./cdsImg/Archer_Skill_OFF.png" alt="" value="">
+                    <img class="skill_4_under" src="./cdsImg/Archer_Skill_OFF.png" alt="" value="">
+                    <img class="skill_5_top" src="./cdsImg/Archer_Skill_3_OFF.png" alt="" value="_3">
+                    <img class="skill_5_under" src="./cdsImg/Archer_Skill_3_OFF.png" alt="" value="_3">
+                </div>
+            </div>
+        </div>
+        <div class="text_tab">
+            <h1 class="Hero_name">아처</h1>
+            <button class="snip1535 hover" id="upgrade_btn">강화</button>
+            <input type="button" value="">
+        </div>
+        <div class="cds_selector">
+            <img class="Hero_Img" src="./cdsImg/Hero_Archer.png" alt="" value="아처">
+            <img class="Hero_Img" src="./cdsImg/Hero_Berserker.png" alt="" value="버서커">
+            <img class="Hero_Img" src="./cdsImg/Hero_Chef.png" alt="" value="셰프">
+            <img class="Hero_Img" src="./cdsImg/Hero_Engineer.png" alt="" value="엔지니어">
+            <img class="Hero_Img" src="./cdsImg/Hero_Magician.png" alt="" value="메지션">
+            <img class="Hero_Img" src="./cdsImg/Hero_Musketeer.png" alt="" value="머스킷티어">
+            <img class="Hero_Img" src="./cdsImg/Hero_Paladin.png" alt="" value="나이트">
+            <img class="Hero_Img" src="./cdsImg/Hero_Priest.png" alt="" value="프리스트">
+        </div>
+    </div>
+</body>
+</html>
