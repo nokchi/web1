@@ -10,26 +10,46 @@
             var fileName = "Archer";
             var skillset = null;
             var btn;
+            var name = "아처";
+            var element = "skill_1_top";
+            var info = $(".info_Text");
+            var infoText = "[저격]<br/>[명궁]의 크리티컬 데미지의 증가 고정치가 25% 증가합니다."
             $(".Hero_Img").on("click",function(){
                 var img = $(this);
-                var name = img.attr("value");
+                name = img.attr("value");
                 fileName = "Archer";
                 if(name=="아처"){
                     fileName="Archer";
+                    infoText="[저격]<br/>[명궁]의 크리티컬 데미지의 증가 고정치가 25% 증가합니다.";
+                    info.html(infoText);
                 }else if(name=="버서커"){
                     fileName="Berserker";
-                }else if(name=="셰프"){
+                    infoText="[광증]<br/>[분노]가 쌓이는 수치가 매공격마다 3배로 증가합니다.";
+                    info.html(infoText);
+                }else if(name=="쉐프"){
                     fileName="Chef";
+                    infoText="[재료수집]<br/>[포식]의 고기가 발견될 확률이 50% 증가합니다.";
+                    info.html(infoText);
                 }else if(name=="엔지니어"){
                     fileName="Engineer";
+                    infoText="[가공]<br/>[수리]시 포탑의 공격력이 1%씩 최대 100%까지 증가합니다.";
+                    info.html(infoText);
                 }else if(name=="메지션"){
                     fileName="Magician";
+                    infoText="[집중력]<br/>[정신고양]의 쿨다운감소율이 50% 증가합니다.";
+                    info.html(infoText);
                 }else if(name=="머스킷티어"){
                     fileName="Musketeer";
+                    infoText="[레드도트사이트]<br/>[심호흡]의 확률 발동시 일반공격이 모든 적을 관통합니다.";
+                    info.html(infoText);
                 }else if(name=="나이트"){
                     fileName="Knight";
+                    infoText="[신체단련]<br/>[전투태세]의 회복력이 50% 증가합니다.";
+                    info.html(infoText);
                 }else if(name=="프리스트"){
                     fileName="Priest";
+                    infoText="[신성]<br/>[회복]의 아군회복이 30% 증가합니다";
+                    info.html(infoText);
                 }
                 $(".Hero_name").html(img.attr("value"));
                 $(".select_hero").attr('src',img.attr("src"));
@@ -47,11 +67,268 @@
             $(".skill_selector > img").on("click",function(){
                 skill = $(this).attr("value");
                 skillset = $(this);
-                console.log(skillset.attr("src").indexOf("_OFF"));
+                element = $(this).attr('class');
                 if(skillset.attr("src").indexOf("_OFF")==-1){
                     btn = $("#upgrade_btn").html("강화 취소");
                 }else{
                     btn = $("#upgrade_btn").html("강화");
+                }
+                if(name=="아처"){
+                    if(element=="skill_1_top"){
+                        infoText="[저격]<br/>[명궁]의 크리티컬 데미지의 증가 고정치가 25% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[매의눈]<br/>[명궁]의 크리티컬 확률이 10% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[근력향상]<br/>[속사] 시전 시 공격력도 20% 증가합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[궁술이해]<br/>[속사] 유지시간동안 경험치 상승률이 50% 증가합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[칼날화살]<br/>[관통화살]의 총 데미지에 (공격력의 30%) 계수를 추가합니다. "
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[독화살]<br/>[관통화살]에 닿는 적들을 3초간 (스킬데미지) 비례로 중독시킵니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[신궁]<br/>아쳐가 기본 공격시 40%의 공격력으로 화살을 한발 더 발사합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[체술]<br/>아쳐의 이동속도만큼 기본 공격력이 높아지고 <br/>이동속도에 비례해서 회피확률이 최대 30%까지 상승합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[최종병기 활]<br/>[다중화살]의 총 데미지에 (공격속도의 200%)를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText= "[사냥]<br/>[다중화살]을 사용할때마다 100~400의 랜덤한 골드를 획득합니다. ";
+                        info.html(infoText)
+                    }
+                }else if(name=="버서커"){
+                    if(element=="skill_1_top"){
+                        infoText="[광증]<br/>[분노]가 쌓이는 수치가 매공격마다 3배로 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[물어뜯기]<br/>[분노]가 쌓인 수치당 0.1%만큼 흡혈이 가능해집니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[수혈]<br/>[흡혈] 시 회복량이 50% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[감정유지]<br/>[흡혈] 시 분노게이지를 소모하지 않습니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[질풍]<br/>[돌진 베기]의 데미지가 100% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[대활강]<br/>[돌진 베기]에 닿은 적들은 1초간 기절합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[경질화]<br/>기본 체력이 1000 증가하고 초당 체력을 10 회복합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[광폭화]<br/>공격력이 50 증가하고 공격속도가 20% 빨라집니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[발도술]<br/>[바람가르기]의 쿨다운이 30초에서 20초로 줄어듭니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[검무]<br/>[바람가르기]에 [분노]를 사용해서 최대 300%만큼 데미지가 증가합니다.";
+                        info.html(infoText)
+                    }
+                }else if(name=="쉐프"){
+                    if(element=="skill_1_top"){
+                        infoText="[재료수집]<br/>[포식]의 고기가 발견될 확률이 50% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[건강식품]<br/>[포식]시 체력이 300 고정치 만큼 회복됩니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[쌍칼]<br/>[채썰기]를 전방으로 두번 날립니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[난도질]<br/>[채썰기]의 쿨타임이 40% 감소합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[식중독]<br/>[코스요리]를 공격하는 적은 3초간 초당 (전체체력의 10%)의 데미지를 받습니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[재주문]<br/>[코스요리]가 날아갈때 적들은 (공격력)의 피해를 입고 1초간 기절합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[프라이팬]<br/>적을 공격 시 11% 확률로 2초간 기절시킵니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[장미칼]<br/>크리티컬 데미지의 고정계수에 50% 가산 데미지가 추가됩니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[식신]<br/>[특제훈제요리]의 초당 데미지에 (공격력의 100%)를 추가합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[비룡]<br/>[특제훈제요리]의 고기가 체력을 완전회복시키고 이속/공속을 3초간 20% 강화합니다.";
+                        info.html(infoText)
+                    }
+                }else if(name=="엔지니어"){
+                    if(element=="skill_1_top"){
+                        infoText="[가공]<br/>[수리]시 포탑의 공격력이 1%씩 최대 100%까지 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[연마]<br/>[수리]시 엔지니어의 체력이 1씩 최대 5000까지 상승합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[기판설계]<br/>[지뢰 설치]의 데미지가 30% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[이해관계]<br/>[지뢰 설치]를 시전시 엔지니어의 체력이 20% 회복됩니다";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[포대강화]<br/>[포탑 설치]의 체력이 3000 만큼 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[대량공정]<br/>[포탑 설치]가 5레벨이면 하나 더 설치할 수 있습니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[장인]<br/>스킬을 사용할때마다 최대체력이 20씩 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[천재]<br/>기본 체력이 1500 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[초열]<br/>[화염방사]시 적들에게 3초간 (스킬공격력 100%)의 화상 데미지를 부여합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[업화]<br/>[화염방사]의 지속시간이 30% 늘어납니다.";
+                        info.html(infoText)
+                    }
+                }else if(name=="메지션"){
+                    if(element=="skill_1_top"){
+                        infoText="[집중력]<br/>[정신고양]의 쿨다운감소율이 50% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[응용력]<br/>[정신고양]이 모든 일반공격에 적용됩니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[흑화]<br/>[다크미사일]의 데미지에 (쿨다운 감소율)을 합산합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[다양화]<br/>[다크미사일]가 5레벨이면 1회 더 발사됩니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[경험]<br/>[다크스피어]의 데미지가 30%만큼 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[지혜]<br/>[다크스피어]의 총 데미지에 (공격속도의 30%)계수를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[기초체력]<br/>영웅 기본 체력이 1000 만큼 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[마도술]<br/>공격력이 50 만큼 증가하고 치명타 확률이 20% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[폭주]<br/>[다크버스트]의 데미지에 (크리티컬 확률의 120%)의 계수를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[저주]<br/>[다크버스트]가 (스킬데미지의 50%)으로 3초간 적을 중독시킵니다.";
+                        info.html(infoText)
+                    }
+                }else if(name=="머스킷티어"){
+                    if(element=="skill_1_top"){
+                        infoText="[레드도트사이트]<br/>[심호흡]의 확률 발동시 일반공격이 모든 적을 관통합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[에너지드링크]<br/>[심호흡]의 확률 발동률이 10% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[수직손잡이]<br/>[저격]의 수직 흔들림이 줄어들고 저격 총 데미지가 10% 상승합니다. ";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[앵글손잡이]<br/>[저격]의 수평 흔들림이 줄어들고 저격 데미지에 (크리티컬 확률의 20%) 계수를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[소이탄]<br/>[수류탄]의 총 데미지에 (전체체력의 30%)를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[파편수류탄]<br/>[수류탄]의 총 데미지를 30% 상승시킵니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[300매그넘]<br/>저격 모드에서 다수의 적을 한번에 공격합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[12게이지]<br/>일반 모드에서 평타 공격시 1회 관통해서 뒤쪽의 적도 공격합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[길리슈트]<br/>[거점확보]내에서 모든 영웅의 크리티컬 확률이 20% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[군용조끼]<br/>[거점확보]내에서 모든 영웅의 방어력이 20 증가합니다. ";
+                        info.html(infoText)
+                    }
+                }else if(name=="나이트"){
+                    if(element=="skill_1_top"){
+                        infoText="[신체단련]<br/>[전투태세]의 회복력이 50% 증가합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[긴장감]<br/>체력이 적을수록 [전투태세]의 회복량이 최대 두배로 상승합니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[돌격]<br/>[철벽]의 공격력이 50% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[방패술]<br/>[철벽]의 기절시간이 1초 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[차렷]<br/>[집합] 습득 시 (습득레벨)의 5배만큼 방어력이 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[열중쉬어]<br/>[집합]을 시전시 체력의 20%를 회복합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[방패타격]<br/>일반 공격 및 스킬 공격시 산정되는 데미지에 방어력을 합산합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[거울방패]<br/>피격시 적군에게 3초간 (방어력의 2배)로 쓰라림(데미지 반사)을 부여합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[성검:발디아]<br/>[성검]의 데미지가 300% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[성검:안시루아]<br/>[성검] 시전 시 다른 스킬을 즉시 사용할 수 있게 됩니다.";
+                        info.html(infoText)
+                    }
+                }else if(name=="프리스트"){
+                    if(element=="skill_1_top"){
+                        infoText="[신성]<br/>[회복]의 아군회복이 30% 증가합니다";
+                        info.html(infoText);
+                    }else if(element=="skill_1_under"){
+                        infoText="[자애]<br/>[회복]이 자신에게도 공격력의 20%만큼 적용됩니다.";
+                        info.html(infoText);
+                    }else if(element=="skill_2_top"){
+                        infoText="[신실함]<br/>[성역]의 체력회복력이 30% 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_2_under"){
+                        infoText="[정의감]<br/>[성역]가 5레벨이면 1회 더 사용할수 있습니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_top"){
+                        infoText="[신력폭풍]<br/>[토네이도]의 총 데미지에 (체력회복력)계수를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_3_under"){
+                        infoText="[정신폭풍]<br/>[토네이도]의 기절시간이 추가적으로 3초 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_top"){
+                        infoText="[축복]<br/>일반 공격으로 회복을 받은 아군은 잠시 이속과 공속이 증가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_4_under"){
+                        infoText="[빛의방패]<br/>방어력에 초당체력회복이 더해져서 적용됩니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_top"){
+                        infoText="[천벌]<br/>[심판]의 총 데미지 및 회복량에 (공격력의 500%)의 계수를 추가합니다.";
+                        info.html(infoText)
+                    }else if(element=="skill_5_under"){
+                        infoText="[은총]<br/>[심판]을 시전시 전범위 아군은 완전히 회복하고 80%로 부활합니다.";
+                        info.html(infoText)
+                    }
                 }
             })
             $(".snip1535").on("click",function(){
@@ -140,10 +417,13 @@
             width: 250px;
         }
         /*텍스트 탭*/
-        .text_tab{
+        .text_tab,.info{
             overflow: auto;
             margin-bottom: 10px;
             border-bottom: 1px solid #FAFAFA;
+        }
+        .info{
+            padding: 10px;
         }
         .text_tab > h3,h1{
         }
@@ -231,10 +511,13 @@
             <button class="snip1535 hover" id="upgrade_btn">강화</button>
             <input type="button" value="">
         </div>
+        <div class="info">
+            <h3 class="info_Text">[저격]<br/>[명궁]의 크리티컬 데미지의 증가 고정치가 25% 증가합니다</h3>
+        </div>
         <div class="cds_selector">
             <img class="Hero_Img" src="./cdsImg/Hero_Archer.png" alt="" value="아처">
             <img class="Hero_Img" src="./cdsImg/Hero_Berserker.png" alt="" value="버서커">
-            <img class="Hero_Img" src="./cdsImg/Hero_Chef.png" alt="" value="셰프">
+            <img class="Hero_Img" src="./cdsImg/Hero_Chef.png" alt="" value="쉐프">
             <img class="Hero_Img" src="./cdsImg/Hero_Engineer.png" alt="" value="엔지니어">
             <img class="Hero_Img" src="./cdsImg/Hero_Magician.png" alt="" value="메지션">
             <img class="Hero_Img" src="./cdsImg/Hero_Musketeer.png" alt="" value="머스킷티어">
